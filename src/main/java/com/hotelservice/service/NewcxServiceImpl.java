@@ -1,5 +1,7 @@
 package com.hotelservice.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,18 @@ public class NewcxServiceImpl implements NexcxService {
 	public NewCxEntity created(NewCxEntity newCxEntity) {
 		// TODO Auto-generated method stub
 		return newcxRepo.save(newCxEntity);
+	}
+
+	@Override
+	public List<NewCxEntity> alldata() {
+		// TODO Auto-generated method stub
+		return newcxRepo.findAll();
+	}
+
+	@Override
+	public NewCxEntity getdata1(Integer id) {
+		// TODO Auto-generated method stub
+		return newcxRepo.findById(id).get();
 	}
 
 	
