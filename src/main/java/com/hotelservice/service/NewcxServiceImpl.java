@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hotelservice.entity.NewCxEntity;
+import com.hotelservice.exception.ResourcenotFoundException;
 import com.hotelservice.repository.NewcxRepo;
 
 @Service
@@ -27,8 +28,11 @@ public class NewcxServiceImpl implements NexcxService {
 
 	@Override
 	public NewCxEntity getdata1(Integer id) {
-		// TODO Auto-generated method stub
-		return newcxRepo.findById(id).get();
+		NewCxEntity cx=newcxRepo.findById(id).orElseThrow(()->new ResourcenotFoundException("hotel with given id is not found !!"));
+		
+		
+		
+		return cx;
 	}
 
 	
